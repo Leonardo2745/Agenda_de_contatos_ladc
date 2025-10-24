@@ -7,7 +7,7 @@
 
 /* ---- SIDEBAR ---- */
 .sidebar {
-    -fx-background-color: #2B2B2B;
+    -fx-background-color: #ff1d8d ;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
 }
 
@@ -43,17 +43,17 @@
 
 /* ---- ÁREA DE CONTEÚDO ---- */
 .content-pane {
-    -fx-background-color: #3C3F41;
+    -fx-background-color: #ff69b4;
 }
 
 /* ---- COMPONENTES ---- */
 .label {
-    -fx-text-fill: #E4E6EB;
+    -fx-text-fill: black;
 }
 
 .button {
-    -fx-background-color: #4A89F3;
-    -fx-text-fill: white;
+    -fx-background-color: #ffc5d3;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
     -fx-padding: 8px 15px;
@@ -61,7 +61,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #3A7BD2;
+    -fx-background-color: #e49196;
 }
 
 /* Estilo para botões de ação na tabela */
@@ -72,14 +72,14 @@
 
 /* ---- TABELA ---- */
 .table-view {
-    -fx-background-color: #2B2B2B;
+    -fx-background-color: pink;
     -fx-border-color: #4A4A4A;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
 .table-view .column-header-background {
-    -fx-background-color: #3A3B3C;
+    -fx-background-color: #ff1d8d;
 }
 
 .table-view .column-header {
@@ -88,7 +88,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 
@@ -112,7 +112,7 @@
 
 /* ---- FORMULÁRIO ---- */
 .text-field, .date-picker {
-    -fx-background-color: #4A4A4A;
+    -fx-background-color: pink   ;
     -fx-text-fill: white;
     -fx-border-color: #5A5A5A;
     -fx-border-width: 1px;
