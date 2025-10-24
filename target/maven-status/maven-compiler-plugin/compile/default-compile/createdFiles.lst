@@ -1,4 +1,5 @@
 agenda_de_contatos\model\Contato.class
+agenda_de_contatos\controller\MainController.class
 module-info.class
 agenda_de_contatos\controller\ContatoListController$1.class
 agenda_de_contatos\service\DatabaseService.class
