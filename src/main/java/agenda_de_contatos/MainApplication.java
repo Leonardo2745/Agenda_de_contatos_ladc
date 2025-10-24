@@ -13,7 +13,7 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 940, 460);
 
-        scene.getStylesheets().add(MainApplication.class.getResource("dark-theme.css").toExternalForm());
+        scene.getStylesheets().add(MainApplication.class.getResource("barbie-theme.css").toExternalForm());
 
         stage.setTitle("Agenda de Contatos ladc");
         stage.setScene(scene);
