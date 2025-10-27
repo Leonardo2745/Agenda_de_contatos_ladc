@@ -12,7 +12,7 @@
 }
 
 .sidebar-title {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #009929;
     -fx-font-size: 24px;
     -fx-font-weight: bold;
 }
@@ -47,12 +47,10 @@
 }
 
 /* ---- COMPONENTES ---- */
-.label {
-    -fx-text-fill: #E4E6EB;
-}
+
 
 .button {
-    -fx-background-color: #4A89F3;
+    -fx-background-color: #009929;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
@@ -61,7 +59,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #3A7BD2;
+    -fx-background-color: #006414;
 }
 
 /* Estilo para botões de ação na tabela */
@@ -73,7 +71,7 @@
 /* ---- TABELA ---- */
 .table-view {
     -fx-background-color: #2B2B2B;
-    -fx-border-color: #4A4A4A;
+    -fx-border-color: green;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
@@ -121,14 +119,18 @@
     -fx-font-size: 14px;
     -fx-padding: 8px;
 }
+.choice-box {
+-fx-background-color: #006414;
+}
+
 
 .text-field:focused {
-    -fx-border-color: #4A89F3;
+    -fx-border-color: #5ccb5f;
     -fx-border-width: 2px;
 }
 
 .date-picker .arrow-button {
-    -fx-background-color: #4A89F3;
+    -fx-background-color: #009929;
 }
 
 /* ---- BARRA DE STATUS ---- */

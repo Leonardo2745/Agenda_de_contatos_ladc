@@ -73,11 +73,10 @@ public class ConfigController {
 
         configService.saveConfig();
 
-        configStatusLabel.setText("Configurações salvas! Reinicie o app para aplicar.");
+        configStatusLabel.setText("Configurações salvas!");
+        configStatusLabel.setStyle("-fx-text-fill: green");
 
-        if(mainController != null) {
-            mainController.initialize();
-        }
+
     }
 
     @FXML

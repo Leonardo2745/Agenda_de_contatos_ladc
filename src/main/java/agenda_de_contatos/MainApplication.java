@@ -13,10 +13,15 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 940, 460);
 
-        scene.getStylesheets().add(MainApplication.class.getResource("barbie-theme.css").toExternalForm());
 
-        stage.setTitle("Agenda de Contatos ladc");
+        scene.getStylesheets().add(MainApplication.class.getResource("dark-theme.css").toExternalForm());
+
+        stage.setTitle("Agenda de Contatos LADC");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }

@@ -18,7 +18,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-                <Label fx:id="titleLabel" text="Adicionar Novo Contato">
+                <Label fx:id="titleLabel" styleClass="sidebar-title" text="Adicionar Novo Contato">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
