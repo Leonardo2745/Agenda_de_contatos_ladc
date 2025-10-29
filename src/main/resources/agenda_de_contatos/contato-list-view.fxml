@@ -5,14 +5,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agenda_de_contatos.controller.ContatoListController">
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="agenda_de_contatos.controller.ContatoListController">
     <children>
-        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox spacing="20.0"
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
@@ -24,22 +31,36 @@
                     </font>
                 </Label>
 
+                <!-- 🔍 Campo de pesquisa -->
+                <TextField fx:id="searchField"
+                           promptText="Pesquisar contato..."
+                           VBox.vgrow="NEVER" />
+
                 <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colNome" prefWidth="200.0" text="Nome" />
                         <TableColumn fx:id="colTelefone" prefWidth="120.0" text="Telefone" />
-
                         <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
                         <TableColumn fx:id="colAcoes" minWidth="180.0" text="Ações" />
                     </columns>
                 </TableView>
-                <Button mnemonicParsing="false" onAction="#handleAdicionarContato" text=" + Novo Contato" />
 
-                <HBox fx:id="statusBar" alignment="CENTER_LEFT" spacing="10" styleClass="status-bar" xmlns:fx="http://javafx.com/fxml/1">
+                <Button mnemonicParsing="false"
+                        onAction="#handleAdicionarContato"
+                        text="+ Novo Contato" />
+
+                <HBox fx:id="statusBar"
+                      alignment="CENTER_LEFT"
+                      spacing="10"
+                      styleClass="status-bar">
                     <Label fx:id="statusLabel" text="Status: Verificando..." />
                     <HBox HBox.hgrow="ALWAYS" />
-                    <Button fx:id="syncButton" mnemonicParsing="false" onAction="#handleSincronizar" text="Sincronizar" />
+                    <Button fx:id="syncButton"
+                            mnemonicParsing="false"
+                            onAction="#handleSincronizar"
+                            text="Sincronizar" />
                 </HBox>
+
             </children>
         </VBox>
     </children>

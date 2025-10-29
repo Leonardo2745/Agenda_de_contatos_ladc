@@ -1,16 +1,16 @@
 package agenda_de_contatos.controller;
 
-
 import agenda_de_contatos.model.Contato;
 import agenda_de_contatos.service.ContatoService;
 import agenda_de_contatos.util.NotificationUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-
 
 public class ContatoListController {
 
@@ -29,9 +29,12 @@ public class ContatoListController {
     private Label statusLabel;
     @FXML
     private Button syncButton;
-
     @FXML
     private HBox statusBar;
+
+    // 🔍 Campo da barra de pesquisa (adicionado no FXML)
+    @FXML
+    private TextField searchField;
 
     private ContatoService contatoService;
     private ObservableList<Contato> obsContatos;
@@ -41,25 +44,24 @@ public class ContatoListController {
         this.mainController = mainController;
     }
 
-
-    public void initialize(){
+    public void initialize() {
         contatoService = new ContatoService();
         carregarDadosTabela();
     }
 
-    private void atualizarStatusConexao(){
+    private void atualizarStatusConexao() {
         if (contatoService.isConexaoMySQL()) {
             statusBar.setVisible(true);
             statusBar.setManaged(true);
 
             boolean isConnected = contatoService.testarConexaoDB();
-            if (isConnected){
+            if (isConnected) {
                 statusLabel.setText("DB Status: connected");
                 statusLabel.setStyle("-fx-text-fill: green");
                 syncButton.setText("refresh");
                 syncButton.setDisable(true);
                 syncButton.setVisible(false);
-            } else{
+            } else {
                 statusLabel.setText("DB Status: offline");
                 statusLabel.setStyle("-fx-text-fill: red");
                 syncButton.setText("retry");
@@ -73,19 +75,45 @@ public class ContatoListController {
     }
 
     @FXML
-    private void handleSincronizar(){
+    private void handleSincronizar() {
         contatoService.sincronizarComBanco();
         carregarDadosTabela();
-
     }
 
-    private void carregarDadosTabela(){
+    private void carregarDadosTabela() {
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         obsContatos = FXCollections.observableArrayList(contatoService.listarContatos());
-        tableView.setItems(obsContatos);
+
+        // 🔍 Filtragem em tempo real
+        FilteredList<Contato> filteredData = new FilteredList<>(obsContatos, p -> true);
+
+        // Listener para o campo de pesquisa
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(contato -> {
+                // se o campo estiver vazio, mostra todos
+                if (newValue == null || newValue.trim().isEmpty()) {
+                    return true;
+                }
+
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                // Filtra por nome, telefone ou email
+                return contato.getNome().toLowerCase().contains(lowerCaseFilter)
+                        || contato.getTelefone().toLowerCase().contains(lowerCaseFilter)
+                        || contato.getEmail().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        // 🔄 SortedList para manter ordenação da tabela
+        SortedList<Contato> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+
         adicionarBotoesDeAcao();
         atualizarStatusConexao();
     }
@@ -98,15 +126,16 @@ public class ContatoListController {
 
             {
                 btnEditar.setOnAction(event -> {
-                    Contato contato= getTableView().getItems().get(getIndex());
+                    Contato contato = getTableView().getItems().get(getIndex());
                     if (mainController != null) {
                         mainController.showEditForm(contato);
                     }
                 });
+
                 btnExcluir.setOnAction(event -> {
-                    Contato contato= getTableView().getItems().get(getIndex());
+                    Contato contato = getTableView().getItems().get(getIndex());
                     contatoService.excluirContato(contato);
-                    NotificationUtil.showSuccessToast(tableView,"Valor excluído com sucesso!");
+                    NotificationUtil.showSuccessToast(tableView, "Valor excluído com sucesso!");
                     carregarDadosTabela();
                 });
             }
