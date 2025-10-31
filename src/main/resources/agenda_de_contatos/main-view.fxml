@@ -23,7 +23,7 @@
             </padding>
             <children>
 
-                <!-- Título -->
+
                 <Label styleClass="sidebar-title" text="Agenda ladc">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -33,7 +33,7 @@
                     </VBox.margin>
                 </Label>
 
-                <!-- Botões principais -->
+
                 <Button fx:id="btnContatos" alignment="BASELINE_LEFT" graphicTextGap="15.0"
                         mnemonicParsing="false" onAction="#handleShowContatoList"
                         styleClass="sidebar-button" text="Contatos">
@@ -58,14 +58,14 @@
                     </graphic>
                 </Button>
 
-                <!-- 🔹 ChoiceBox para seleção de tema -->
+
                 <Label text="Tema:" style="-fx-font-weight: bold; -fx-padding: 10 0 0 0; -fx-background-color: none;" styleClass="choice-box"/>
                 <ChoiceBox fx:id="themeChoiceBox" prefWidth="200.0" />
 
-                <!-- Preenche o espaço vazio -->
+
                 <VBox VBox.vgrow="ALWAYS" />
 
-                <!-- Botão Sair -->
+
                 <Button alignment="BASELINE_LEFT" graphicTextGap="15.0"
                         mnemonicParsing="false" styleClass="sidebar-button" text="Sair">
                     <graphic>

@@ -131,7 +131,7 @@
 
 
 .text-field:focused {
-    -fx-border-color: #4A89F3;
+    -fx-border-color: black;
     -fx-border-width: 2px;
 }
 

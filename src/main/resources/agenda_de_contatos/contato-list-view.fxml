@@ -31,7 +31,6 @@
                     </font>
                 </Label>
 
-                <!-- 🔍 Campo de pesquisa -->
                 <TextField fx:id="searchField"
                            promptText="Pesquisar contato..."
                            VBox.vgrow="NEVER" />

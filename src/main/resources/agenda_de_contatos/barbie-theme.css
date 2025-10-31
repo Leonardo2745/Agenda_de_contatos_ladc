@@ -1,25 +1,24 @@
-
 /* ---- BASE ---- */
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-base: #3C3F41;
+    -fx-base: #FAFAFA;
 }
 
 /* ---- SIDEBAR ---- */
 .sidebar {
-    -fx-background-color: #ff1d8d ;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+    -fx-background-color: #f17ea1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
 }
 
 .sidebar-title {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #E91E63;
     -fx-font-size: 24px;
     -fx-font-weight: bold;
 }
 
 .sidebar-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #B0B3B8;
+    -fx-text-fill: #333333;
     -fx-font-size: 16px;
     -fx-pref-width: 200px;
     -fx-alignment: CENTER_LEFT;
@@ -28,43 +27,45 @@
 }
 
 .sidebar-button:hover {
-    -fx-background-color: #3A3B3C;
-    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #F8BBD0;
+    -fx-text-fill: #AD1457;
     -fx-cursor: hand;
 }
 
 .sidebar-button .icon {
-    -fx-fill: #B0B3B8;
+    -fx-fill: #555555;
 }
 
 .sidebar-button:hover .icon {
-    -fx-fill: #FFFFFF;
+    -fx-fill: #AD1457;
 }
 
 /* ---- ÁREA DE CONTEÚDO ---- */
 .content-pane {
-    -fx-background-color: #ff69b4;
+    -fx-background-color: #ffc4d8; /* Fundo cinza claro */
 }
 
-/* ---- COMPONENTES ---- */
-.label {
-    -fx-text-fill: black;
-}
-
+/* ---- BOTÕES ---- */
 .button {
-    -fx-background-color: #ffc5d3;
-    -fx-text-fill: black;
+    -fx-background-color: #E91E63; /* Rosa padrão */
+    -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
     -fx-padding: 8px 15px;
     -fx-cursor: hand;
+    -fx-transition: 0.2s;
 }
 
 .button:hover {
-    -fx-background-color: #e49196;
+    -fx-background-color: #AD1457; /* Rosa mais escuro no hover */
+    -fx-text-fill: #FFFFFF;        /* Texto branco */
 }
 
-/* Estilo para botões de ação na tabela */
+.button:hover .icon {
+    -fx-fill: #FFFFFF; /* Ícone branco no hover */
+}
+
+/* ---- BOTÕES DE AÇÃO NA TABELA ---- */
 .table-cell .button {
     -fx-padding: 5px 10px;
     -fx-font-size: 12px;
@@ -72,14 +73,14 @@
 
 /* ---- TABELA ---- */
 .table-view {
-    -fx-background-color: pink;
-    -fx-border-color: #4A4A4A;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E91E63;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
 .table-view .column-header-background {
-    -fx-background-color: #ff1d8d;
+    -fx-background-color: #ED9FD0;
 }
 
 .table-view .column-header {
@@ -88,33 +89,33 @@
 }
 
 .table-view .column-header .label {
-    -fx-text-fill: black;
+    -fx-text-fill: #222222;
     -fx-font-weight: bold;
 }
 
 .table-view .table-cell {
-    -fx-text-fill: #E4E6EB;
+    -fx-text-fill: #333333;
     -fx-border-color: transparent;
     -fx-padding: 12px;
 }
 
 .table-view .table-row-cell:odd {
-    -fx-background-color: #3C3F41;
+    -fx-background-color: #F5D0E8;
 }
 
 .table-view .table-row-cell:even {
-    -fx-background-color: #373A3C;
+    -fx-background-color: #F2BDE0;
 }
 
 .table-view .table-row-cell:hover {
-    -fx-background-color: #4A4A4A;
+    -fx-background-color: #F8BBD0;
 }
 
-/* ---- FORMULÁRIO ---- */
+/* ---- FORMULÁRIOS ---- */
 .text-field, .date-picker {
-    -fx-background-color: pink   ;
-    -fx-text-fill: white;
-    -fx-border-color: #5A5A5A;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #333333;
+    -fx-border-color: #CCCCCC;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
@@ -122,22 +123,31 @@
     -fx-padding: 8px;
 }
 
+.choice-box {
+    -fx-background-color: #E91E63;
+    -fx-text-fill:white;
+    -fx-border-radius: 5px;
+}
+
 .text-field:focused {
-    -fx-border-color: #4A89F3;
+    -fx-border-color: #E91E63;
     -fx-border-width: 2px;
 }
 
 .date-picker .arrow-button {
-    -fx-background-color: #4A89F3;
+    -fx-background-color: #E91E63;
 }
 
 /* ---- BARRA DE STATUS ---- */
 .status-bar {
-    -fx-border-color: #4A4A4A;
+    -fx-border-color: #DDDDDD;
     -fx-border-width: 1 0 0 0;
     -fx-padding: 10 0 0 0;
+    -fx-background-color: #F0F0F0;
 }
 
 .status-bar .label {
     -fx-font-style: italic;
+    -fx-text-fill: #555555;
 }
+

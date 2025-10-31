@@ -32,7 +32,7 @@ public class ContatoListController {
     @FXML
     private HBox statusBar;
 
-    // 🔍 Campo da barra de pesquisa (adicionado no FXML)
+
     @FXML
     private TextField searchField;
 
@@ -87,10 +87,9 @@ public class ContatoListController {
 
         obsContatos = FXCollections.observableArrayList(contatoService.listarContatos());
 
-        // 🔍 Filtragem em tempo real
+
         FilteredList<Contato> filteredData = new FilteredList<>(obsContatos, p -> true);
 
-        // Listener para o campo de pesquisa
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(contato -> {
                 // se o campo estiver vazio, mostra todos
@@ -101,14 +100,14 @@ public class ContatoListController {
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                // Filtra por nome, telefone ou email
+
                 return contato.getNome().toLowerCase().contains(lowerCaseFilter)
                         || contato.getTelefone().toLowerCase().contains(lowerCaseFilter)
                         || contato.getEmail().toLowerCase().contains(lowerCaseFilter);
             });
         });
 
-        // 🔄 SortedList para manter ordenação da tabela
+
         SortedList<Contato> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
 
